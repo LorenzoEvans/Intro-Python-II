@@ -15,5 +15,5 @@ class Player:
   self.attack = attack
   self.defense = defense
   self.magic = magic
-  pouch = {}
+  pouch = {} if pouch is None else pouch
   self.current_room = current_room
