@@ -70,6 +70,18 @@ def repl_parser():
   print('Exited game. Good-bye!')
 
 repl_parser()
+
+for data in room:
+ q = 'q'
+ print(
+  data
+ )
+ dir_choice = input('')
+ 
+ 
+ if dir_choice = q:
+  print('Goodbye') # already made this message elsewhere, 
+  # quit() (write quit function at some point)
 # Write a loop that:
 #
 # * Prints the current room name
