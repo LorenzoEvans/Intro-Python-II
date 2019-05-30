@@ -6,5 +6,5 @@ class Room:
   self.name = name
   self.location = location
   self.cardinal_dir = cardinal_dir
-  self.items = items
-  self.monsters = monsters
+  items = {}
+  monsters = {}

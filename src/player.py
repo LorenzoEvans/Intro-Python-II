@@ -15,4 +15,5 @@ class Player:
   self.attack = attack
   self.defense = defense
   self.magic = magic
+  pouch = {}
   self.current_room = current_room
