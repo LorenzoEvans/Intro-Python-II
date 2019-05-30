@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
  
@@ -38,6 +39,7 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+rogue = Player('Constantine', 100, 5, 10, 100)
 # input_data = input('')
 def repl_parser():
  n = 'n'
