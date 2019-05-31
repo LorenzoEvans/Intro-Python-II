@@ -21,3 +21,5 @@ class Player:
   return f"You have {self.health} health, {self.attack} attack, {self.defense} defense, {self.magic} magic, and are {self.current_room}."
  def grab_item(self):
   print('Grabbed item')
+ def drop_item(self):
+  print('Dropped item.')

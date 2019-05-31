@@ -47,8 +47,16 @@ rogue = Player('Constantine', 100, 5, 10, 100, {}, room['outside'])
 def quit():
  print('You have exited The Crystalline Prophecy. Good-bye!') 
  exit()
+ 
+def try_dir(dir, current_room):
+ dir_choice = dir + '_to'
+ if hasattr(current_room, dir_choice):
+  return True
+ else:
+  return False
 
 print('Welcome to The Crystalline Prophecy.')
+
 while True:
  n = 'n'
  s = 's'
@@ -58,31 +66,37 @@ while True:
  r = 'r'
  # add wasd directional info
  
- input_data = input('>')
+ input_data = input('> ').lower()
  if input_data == n:
-  print('You went north.')
-  rogue.current_room = rogue.current_room.n_to
-  print('You entered the %s' % (rogue.current_room.name))
-  print(rogue.current_room.desc)
-# move player in that direction if possible, otherwise return error.
+  if try_dir(input_data, rogue.current_room):
+   print('You went north.')
+   rogue.current_room = rogue.current_room.n_to
+   print(rogue.current_room.desc)
+   print('Current location: %s' % (rogue.current_room.name))
+  else:
+   print('There\'s nowhere for %s to go.' % (rogue.name))
  elif input_data == s:
-  print('You went south.')
-  rogue.current_room = rogue.current_room.s_to
-  print('You entered the %s' % (rogue.current_room.name))
-  print(rogue.current_room.desc)
-# move player in that direction if possible, otherwise return error.
+  if try_dir(input_data, rogue.current_room):
+   print('You went south.')
+   rogue.current_room = rogue.current_room.s_to
+   print('Current location: %s' % (rogue.current_room.name))
+   print(rogue.current_room.desc)
+  else:
+   print('There\'s nowhere for %s to go.' % (rogue.name))
  elif input_data == w:
-  print('You went west.')
-  rogue.current_room = rogue.current_room.w_to
-  print('You entered the %s' % (rogue.current_room.name))
-  print(rogue.current_room.desc)
-# move player in that direction if possible, otherwise return error.
+  if try_dir(input_data, rogue.current_room):
+   print('You went west.')
+   rogue.current_room = rogue.current_room.w_to
+   print('Current location: %s' % (rogue.current_room.name))
+   print(rogue.current_room.desc)
  elif input_data == e:
-  rogue.current_room = rogue.current_room.e_to
-  print('You went east.')
-  print('You entered the %s' % (rogue.current_room.name))
-  print(rogue.current_room.desc)
- # move player in that direction if possible, otherwise return error.
+  if try_dir(input_data, rogue.current_room):
+   print('You went east.')
+   rogue.current_room = rogue.current_room.e_to
+   print(rogue.current_room.desc)
+   print('Current location: %s' % (rogue.current_room.name))
+  else:
+   print('There\'s nowhere for %s to go.' % (rogue.name))
  elif input_data == q:
   quit()
 
