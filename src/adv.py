@@ -44,33 +44,48 @@ rogue = Player('Constantine', 100, 5, 10, 100, {}, room['outside'])
 
 # repl_parser()
 
+def quit():
+ print('You have exited The Crystalline Prophecy. Good-bye!') 
+ exit()
+
 print('Welcome to The Crystalline Prophecy.')
 while True:
- input_data = input('>').lower()[0]
+ n = 'n'
+ s = 's'
+ e = 'e'
+ w = 'w'
+ q = 'q'
+ r = 'r'
+ # add wasd directional info
+ 
+ input_data = input('>')
  if input_data == n:
   print('You went north.')
-  # rogue.room = room['name'].n_to (?)
+  rogue.current_room = rogue.current_room.n_to
+  print('You entered the %s' % (rogue.current_room.name))
+  print(rogue.current_room.desc)
 # move player in that direction if possible, otherwise return error.
- # target room object on current character
- # overwrite current room data to match new room data
  elif input_data == s:
   print('You went south.')
+  rogue.current_room = rogue.current_room.s_to
+  print('You entered the %s' % (rogue.current_room.name))
+  print(rogue.current_room.desc)
 # move player in that direction if possible, otherwise return error.
- # target room object on current character
- # overwrite current room data to match new room data
  elif input_data == w:
   print('You went west.')
+  rogue.current_room = rogue.current_room.w_to
+  print('You entered the %s' % (rogue.current_room.name))
+  print(rogue.current_room.desc)
 # move player in that direction if possible, otherwise return error.
- # target room object on current character
- # overwrite current room data to match new room data
  elif input_data == e:
+  rogue.current_room = rogue.current_room.e_to
   print('You went east.')
+  print('You entered the %s' % (rogue.current_room.name))
+  print(rogue.current_room.desc)
  # move player in that direction if possible, otherwise return error.
-  # target room object on current character
-  # overwrite current room data to match new room data
- elif input_data == 'q':
-  # quit()
-  print('Exited game. Good-bye!')
+ elif input_data == q:
+  quit()
+
 
 # Write a loop that:
 #
