@@ -1,7 +1,9 @@
 from room import Room
 from player import Player
-from items import Potion, Weapon, Armor, Spell
- 
+from item_set.armor import Shield
+from item_set.potions import Elixir
+from item_set.spell import Fire_Spell, Ice_Spell, Water_Spell, Earth_Spell, Air_Spell
+from item_set.weapons import BroadSword, LongSword
 # Declare all the rooms
  
 room = {
@@ -10,18 +12,18 @@ room = {
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. 
                      Dusty passages run north and east.""",
-                     [Potion, Weapon, Armor, Spell]),
+                     [Shield, BroadSword]),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm.""", [Elixir, Fire_Spell]),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+to north. The smell of gold permeates the air.""", [Ice_Spell, Water_Spell ]),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only exit is to the south.""", [LongSword, Earth_Spell, Air_Spell]),
 }
 
 
