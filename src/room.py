@@ -1,6 +1,6 @@
 # Implement a class to hold room information. This should have name and
 # description attributes.
-from items import Potion, Weapon, Armor, Spell
+from item_set.items import Potion, Weapon, Armor, Spell
 
 class Room:
  def __init__(self, 
