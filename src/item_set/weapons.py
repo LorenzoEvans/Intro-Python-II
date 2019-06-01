@@ -1,23 +1,6 @@
-from items import Weapon
+from item_set.items import BroadSword, LongSword
 
-class BroadSword(Weapon):
- def __init__(self,
-              name,
-              desc,
-              type,
-              attack):
-  self.name = name
-  self.desc = desc
-  self.type = type
-  self.attack = attack
-
-class LongSword(Weapon):
- def __init__(self,
-              name,
-              desc,
-              type,
-              attack):
-  self.name = name
-  self.desc = desc
-  self.type = type
-  self.attack = attack
+BroadSword = BroadSword('BroadSword',
+                        'A slightly rusty Broadsword from a bygone era.',
+                        'weapon',
+                        5)

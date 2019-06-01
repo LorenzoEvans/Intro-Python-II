@@ -1,4 +1,4 @@
-from items import Armor
+from item_set.items import Armor
 
 Shield = Armor('Knave Shield',
                'A small wooden shield',

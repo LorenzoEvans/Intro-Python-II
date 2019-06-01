@@ -58,7 +58,6 @@ def try_dir(dir, current_room):
   return True
  else:
   return False
-
 print('Welcome to The Crystalline Prophecy.')
 
 while True:
