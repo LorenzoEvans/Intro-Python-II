@@ -1,14 +1,16 @@
 from room import Room
 from player import Player
-
+from items import Potion, Weapon, Armor, Spell
+ 
 # Declare all the rooms
  
 room = {
     'outside':  Room("Outside the Cave Entrance",
                      "North of you, the cave opening beckons"),
 
-    'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+    'foyer':    Room("Foyer", """Dim light filters in from the south. 
+                     Dusty passages run north and east.""",
+                     [Potion, Weapon, Armor, Spell]),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
@@ -64,6 +66,7 @@ while True:
  w = 'w'
  q = 'q'
  r = 'r'
+ search = 'search'
  # add wasd directional info
  
  input_data = input('> ').lower()
@@ -97,7 +100,9 @@ while True:
    print('Current location: %s' % (rogue.current_room.name))
   else:
    print('There\'s nowhere for %s to go.' % (rogue.name))
- elif input_data == q:
+ if input_data == search:
+  rogue.search(rogue.current_room)
+ if input_data == q:
   quit()
 
 

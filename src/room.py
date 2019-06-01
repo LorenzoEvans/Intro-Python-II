@@ -1,12 +1,12 @@
 # Implement a class to hold room information. This should have name and
 # description attributes.
+from items import Potion, Weapon, Armor, Spell
 
 class Room:
  def __init__(self, 
               name, 
               desc, 
-              cardinal_dir = None,
-              items = None, 
+              items = [], 
               monsters = None,
               current_player = None,
               n_to = None,
@@ -15,8 +15,7 @@ class Room:
               e_to = None):
   self.name = name
   self.desc = desc
-  self.cardinal_dir = cardinal_dir if cardinal_dir is not None else cardinal_dir
-  items = {} if items is None else items
+  self.items = [] if items is None else items
   monsters = {} if items is None else items
   self.current_player = current_player if current_player is not None else current_player
   self.n_to = n_to if n_to is not None else n_to

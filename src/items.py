@@ -20,6 +20,34 @@ class Potion(Item):
   self.desc = desc
   self.type = type
 
+class SmallPotion(Potion):
+ def __init__(self,
+              name,
+              desc,
+              type):
+  self.name = name
+  self.desc = desc
+  self.type = type
+
+class MediumPotion(Potion):
+ def __init__(self,
+              name,
+              desc,
+              type):
+  self.name = name
+  self.desc = desc
+  self.type = type
+
+class LargePotion(Potion):
+ def __init__(self,
+              name,
+              desc,
+              type):
+  self.name = name
+  self.desc = desc
+  self.type = type
+
+
 class Weapon(Item):
  def __init__(self,
               name,
@@ -30,7 +58,29 @@ class Weapon(Item):
   self.desc = desc
   self.type = type
   self.attack = attack
- 
+
+class BroadSword(Weapon):
+ def __init__(self,
+              name,
+              desc,
+              type,
+              attack):
+  self.name = name
+  self.desc = desc
+  self.type = type
+  self.attack = attack
+
+class LongSword(Weapon):
+ def __init__(self,
+              name,
+              desc,
+              type,
+              attack):
+  self.name = name
+  self.desc = desc
+  self.type = type
+  self.attack = attack
+
 class Armor(Item):
  def __init__(self,
               name,
@@ -42,4 +92,13 @@ class Armor(Item):
   self.type = type
   self.defense = defense
 
-# class Spell
+class Spell(Item):
+ def __init__(self,
+              name,
+              desc,
+              type,
+              attack):
+  self.name = name
+  self.desc = desc
+  self.type = type
+  self.attack = attack
