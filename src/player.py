@@ -33,6 +33,10 @@ class Player:
   self.current_room = current_room if current_room is not None else current_room
 
 
+# def cast(spell, target):
+  # while self.magic >= spell.cost:
+    # spell.use(target) # Note, if it's a status changing spell the target will be self..hmm
+
 def search(self, current_room):
   if len(current_room.items) > 0:
     for item in current_room.items:
@@ -48,6 +52,12 @@ def equip_item(self, item):
     self.equipped_armor = item
   else:
     return f"You do not have this item. You can only equip items if you have them. Try searching for it!"
+def drop_item(self, item):
+  for section in self.inventory:
+    if item in section:
+      item_idx = section[section.index(item)]
+      del section[item_idx]
+  print('Dropped item.')
 
 def check_inventory(self, inventory, item_name):
   for item in inventory:
@@ -55,6 +65,7 @@ def check_inventory(self, inventory, item_name):
       return True 
     else:
       return False
+      
 def grab_item(self, current_room, item):
   if item.item_type is 'spell':
     if check_inventory(self.inventory, item.item_name):
@@ -85,7 +96,7 @@ def grab_item(self, current_room, item):
       for armor in self.armors:
         if armor['armor_name'] is item.item_name:
           self.armors.index(armor).quantity += 1
-          item_idx = current_room.items.index(item)
+          item_idx = current_room.items[current_room.items.index(item)]
           del current_room.items[item_idx]
     else:
       self.spells.insert(0, {'armor_name': item.item_name, 'item': item, 'quantity': item.quantity})
@@ -104,9 +115,5 @@ def grab_item(self, current_room, item):
     current_room.items[item_idx] = None
     del current_room.items[item_idx]
   print(f"{self.name} grabbed the {item.item_name} and added it to their inventory!")
-
-def drop_item(self):
-  print('Dropped item.')
-
 def __repr__(self):
   return f"You have {self.health} health, {self.attack} attack, {self.defense} defense, {self.magic} magic, and are in the {self.current_room}."

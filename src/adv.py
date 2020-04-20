@@ -78,8 +78,6 @@ while True:
    print('You went north.')
    rogue.current_room = rogue.current_room.n_to
    print(rogue.current_room.desc)
-  #  for text in rogue.current_room.desc:
-  #    print(f"{text}")
    print(rogue.__repr__())
    print('Current location: %s' % (rogue.current_room.name))
   else:
@@ -91,6 +89,7 @@ while True:
    rogue.current_room = rogue.current_room.s_to
    print('Current location: %s' % (rogue.current_room.name))
    print(rogue.current_room.desc)
+   print(rogue.__repr__())
   else:
    print('There\'s nowhere for %s to go.' % (rogue.name))
 
@@ -100,12 +99,13 @@ while True:
    rogue.current_room = rogue.current_room.w_to
    print('Current location: %s' % (rogue.current_room.name))
    print(rogue.current_room.desc)
-
+   print(rogue.__repr__())
  elif input_data == e:
   if try_dir(input_data, rogue.current_room):
    print('You went east.')
    rogue.current_room = rogue.current_room.e_to
    print(rogue.current_room.desc)
+   print(rogue.__repr__())
    print('Current location: %s' % (rogue.current_room.name))
   else:
    print('There\'s nowhere for %s to go.' % (rogue.name))
