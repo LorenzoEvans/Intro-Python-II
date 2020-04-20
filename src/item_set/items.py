@@ -2,6 +2,7 @@ class Item:
  def __init__(self, 
               name, 
               desc, 
+              quantity,
               item_type = None, 
               attack = None, 
               defense = None):
@@ -16,7 +17,9 @@ class Potion(Item):
               name,
               desc,
               type,
-              potency = None):
+              potency = None,
+              quantity = 0):
+  super.__init__(quantity)
   self.name = name
   self.desc = desc
   self.type = type
@@ -26,7 +29,9 @@ class SmallPotion(Potion):
  def __init__(self,
               name,
               desc,
-              type):
+              type,
+              quantity):
+  super.__init__(quantity)
   self.name = name
   self.desc = desc
   self.type = type
@@ -35,7 +40,9 @@ class MediumPotion(Potion):
  def __init__(self,
               name,
               desc,
-              type):
+              type,
+              quantity):
+  super.__init__(quantity)
   self.name = name
   self.desc = desc
   self.type = type
@@ -44,7 +51,9 @@ class LargePotion(Potion):
  def __init__(self,
               name,
               desc,
-              type):
+              type,
+              quantity):
+  super.__init__(quantity)
   self.name = name
   self.desc = desc
   self.type = type
@@ -55,7 +64,9 @@ class Weapon(Item):
               name,
               desc,
               type,
-              attack):
+              attack,
+              quantity):
+  super.__init__(quantity)
   self.name = name
   self.desc = desc
   self.type = type
@@ -66,7 +77,9 @@ class BroadSword(Weapon):
               name,
               desc,
               type,
-              attack):
+              attack,
+              quantity):
+  super.__init__(quantity)
   self.name = name
   self.desc = desc
   self.type = type
@@ -77,7 +90,9 @@ class LongSword(Weapon):
               name,
               desc,
               type,
-              attack):
+              attack,
+              quantity):
+  super.__init__(quantity)
   self.name = name
   self.desc = desc
   self.type = type
@@ -89,7 +104,9 @@ class Armor(Item):
               name,
               desc,
               type,
-              defense):
+              defense,
+              quantity):
+  super.__init__(quantity)
   self.name = name
   self.desc = desc
   self.type = type
@@ -101,9 +118,13 @@ class Spell(Item):
               desc,
               spell_type,
               attack,
-              cost):
+              cost,
+              quantity):
+  super.__init__(quantity)
   self.name = name
   self.desc = desc
   self.type = spell_type
   self.attack = attack
   self.cost = cost
+
+item_types = ['spell', 'armor', 'weapon', 'potion']

@@ -115,7 +115,7 @@ while True:
 
  if input_data == 'grab':
    while current_room.items is not None:
-     rogue.grab_item()
+     rogue.grab_item(current_room)
  if input_data == q:
    quit()
 
