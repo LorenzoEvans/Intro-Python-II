@@ -49,10 +49,61 @@ def equip_item(self, item):
   else:
     return f"You do not have this item. You can only equip items if you have them. Try searching for it!"
 
-def grab_item(self, current_room, item_name):
-  if item_name in current_room.items:
-    self.inventory.insert(0, item_name)
-    print(f"{self.name} grabbed the {item_name}.")
+def check_inventory(self, inventory, item_name):
+  for item in inventory:
+    if item.item_name is item_name:
+      return True 
+    else:
+      return False
+def grab_item(self, current_room, item):
+  if item.item_type is 'spell':
+    if check_inventory(self.inventory, item.item_name):
+      for spell in self.spells:
+        if spell['spell_name'] is item.item_name:
+          self.spells.index(spell).quantity += 1
+          item_idx = current_room.items.index(item)
+          del current_room.items[item_idx]
+    else:
+      self.spells.insert(0, {'spell_name': item.item_name, 'item': item, 'quantity': item.quantity})
+      item_idx = current_room.items.index(item)
+      current_room.items[item_idx] = None
+      del current_room.items[item_idx]
+  elif item.item_type is 'weapon':
+    if check_inventory(self.inventory, item.item_name):
+      for weapon in self.weapons:
+        if weapon['weapon_name'] is item.item_name:
+          self.weapons.index(weapon).quantity += 1
+          item_idx = current_room.items.index(item)
+          del current_room.items[item_idx]
+    else:
+      self.spells.insert(0, {'weapon_name': item.item_name, 'item': item, 'quantity': item.quantity})
+      item_idx = current_room.items.index(item)
+      current_room.items[item_idx] = None
+      del current_room.items[item_idx]
+  elif item.item_type is 'armor': 
+    if check_inventory(self.inventory, item.item_name):
+      for armor in self.armors:
+        if armor['armor_name'] is item.item_name:
+          self.armors.index(armor).quantity += 1
+          item_idx = current_room.items.index(item)
+          del current_room.items[item_idx]
+    else:
+      self.spells.insert(0, {'armor_name': item.item_name, 'item': item, 'quantity': item.quantity})
+      item_idx = current_room.items.index(item)
+      current_room.items[item_idx] = None
+      del current_room.items[item_idx]  
+  elif item.item_type is 'potion':
+    if check_inventory(self.inventory, item.item_name):
+      for potion in self.potions:
+        if potion.potion_name is item.item_name:
+          self.potions.index(potion).quantity += 1
+          item_idx = current_room.items.index(item)
+          del current_room.items[item_idx]
+    self.spells.insert(0, {'potion_name': item.item_name, 'item': item, 'quantity': item.quantity})
+    item_idx = current_room.items.index(item)
+    current_room.items[item_idx] = None
+    del current_room.items[item_idx]
+  print(f"{self.name} grabbed the {item.item_name} and added it to their inventory!")
 
 def drop_item(self):
   print('Dropped item.')

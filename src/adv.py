@@ -114,8 +114,12 @@ while True:
   rogue.search(rogue.current_room)
 
  if input_data == 'grab':
-   while current_room.items is not None:
-     rogue.grab_item(current_room)
+   print('What item would you like to grab?')
+   choice = input()
+   while rogue.current_room.items is not None:
+     for item in rogue.current.room_items:
+       if item.item_name.lower() == choice.lower():
+        rogue.grab_item(rogue.current_room.items, item)
  if input_data == q:
    quit()
 
