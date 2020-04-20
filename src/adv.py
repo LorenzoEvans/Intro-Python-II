@@ -10,8 +10,8 @@ room = {
     'outside':  Room("Outside the Cave Entrance",
                      "North of you, the cave opening beckons"),
 
-    'foyer':    Room("Foyer", """Dim light filters in from the south. 
-                     Dusty passages run north and east.""",
+    'foyer':    Room("Foyer", "Dim light filters in from the south." 
+                     "Dusty passages run north and east.",
                      [Shield, BroadSword]),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
@@ -67,7 +67,6 @@ while True:
  w = 'w'
  q = 'q'
  r = 'r'
- search = 'search'
  # add wasd directional info
  
  input_data = input('> ').lower()
@@ -75,10 +74,14 @@ while True:
   if try_dir(input_data, rogue.current_room):
    print('You went north.')
    rogue.current_room = rogue.current_room.n_to
-   print(rogue.current_room.desc)
+  #  print(rogue.current_room.desc)
+   for text in rogue.current_room.desc:
+     print(f"{text}\n")
+   print(rogue.__repr__())
    print('Current location: %s' % (rogue.current_room.name))
   else:
    print('There\'s nowhere for %s to go.' % (rogue.name))
+
  elif input_data == s:
   if try_dir(input_data, rogue.current_room):
    print('You went south.')
@@ -87,18 +90,21 @@ while True:
    print(rogue.current_room.desc)
   else:
    print('There\'s nowhere for %s to go.' % (rogue.name))
+
  elif input_data == w:
   if try_dir(input_data, rogue.current_room):
    print('You went west.')
    rogue.current_room = rogue.current_room.w_to
    print('Current location: %s' % (rogue.current_room.name))
    print(rogue.current_room.desc)
+
  elif input_data == e:
   if try_dir(input_data, rogue.current_room):
    print('You went east.')
    rogue.current_room = rogue.current_room.e_to
    print(rogue.current_room.desc)
    print('Current location: %s' % (rogue.current_room.name))
+   
   else:
    print('There\'s nowhere for %s to go.' % (rogue.name))
  if input_data == search:

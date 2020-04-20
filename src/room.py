@@ -14,6 +14,7 @@ class Room:
               e_to = None):
   self.name = name
   self.desc = desc
+  self.current_player = current_player
   self.items = [] if items is None else items
   monsters = {} if items is None else items
   self.current_player = current_player if current_player is not None else current_player
@@ -21,5 +22,5 @@ class Room:
   self.s_to = s_to if s_to is not None else s_to
   self.w_to = w_to if w_to is not None else w_to
   self.e_to = e_to if w_to is not None else w_to
- def __repr__(self):
-  return f"{self.name}. {self.desc}."
+#  def __repr__(self):
+#   return f"{self.name} {self.desc}, {self.current_player}."
