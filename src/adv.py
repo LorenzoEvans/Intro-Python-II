@@ -7,11 +7,11 @@ from item_set.weapons import BroadSword, LongSword
 # Declare all the rooms
  
 room = {
-    'outside':  Room("Outside the Cave Entrance",
-                     "North of you, the cave opening beckons"),
+    'outside':  Room('Entrance','Outside the Cave Entrance',
+                     'North of you, the cave opening beckons'),
 
-    'foyer':    Room("Foyer", "Dim light filters in from the south." 
-                     "Dusty passages run north and east.",
+    'foyer':    Room('Foyer', 'Dim light filters in from the south.', 
+                     'Dusty passages run north and east.',
                      [Shield, BroadSword]),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
@@ -51,7 +51,10 @@ rogue = Player('Constantine', 100, 5, 10, 100, {}, room['outside'])
 def quit():
  print('You have exited The Crystalline Prophecy. Good-bye!') 
  exit()
- 
+ # actions
+
+ search = 'search'
+ grab = 'grab'
 def try_dir(dir, current_room):
  dir_choice = dir + '_to'
  if hasattr(current_room, dir_choice):
@@ -74,9 +77,9 @@ while True:
   if try_dir(input_data, rogue.current_room):
    print('You went north.')
    rogue.current_room = rogue.current_room.n_to
-  #  print(rogue.current_room.desc)
-   for text in rogue.current_room.desc:
-     print(f"{text}\n")
+   print(rogue.current_room.desc)
+  #  for text in rogue.current_room.desc:
+  #    print(f"{text}")
    print(rogue.__repr__())
    print('Current location: %s' % (rogue.current_room.name))
   else:
@@ -107,7 +110,7 @@ while True:
    
   else:
    print('There\'s nowhere for %s to go.' % (rogue.name))
- if input_data == search:
+ if input_data == 'search':
   rogue.search(rogue.current_room)
  if input_data == q:
   quit()
