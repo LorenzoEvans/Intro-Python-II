@@ -2,12 +2,12 @@ class Item:
  def __init__(self, 
               name, 
               desc, 
-              type = None, 
+              item_type = None, 
               attack = None, 
               defense = None):
   self.name = name
   self.desc = desc
-  self.type = type if type is not None else type
+  self.type = item_type if item_type is not None else item_type
   self.attack = attack if attack is not None else attack
   self.defense = defense if defense is not None else defense
 
@@ -99,9 +99,11 @@ class Spell(Item):
  def __init__(self,
               name,
               desc,
-              type,
-              attack):
+              spell_type,
+              attack,
+              cost):
   self.name = name
   self.desc = desc
-  self.type = type
+  self.type = spell_type
   self.attack = attack
+  self.cost = cost

@@ -15,6 +15,13 @@ class Player:
   self.attack = attack
   self.defense = defense
   self.magic = magic
+  self.spells = []
+  self.potions = []
+  self.armor = []
+  self.equipped_armor = None
+  self.weapons = []
+  self.equipped_weapon = None 
+  
   pouch = {} if pouch is None else pouch
   self.current_room = current_room if current_room is not None else current_room
  def __repr__(self):
