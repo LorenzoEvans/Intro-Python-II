@@ -13,6 +13,8 @@ class Player:
               inventory=None,
               current_room=None):
   self.name = name
+  self.level = 0
+  self.exp = 0
   self.health = health
   self.attack = attack
   self.defense = defense
@@ -65,7 +67,7 @@ def check_inventory(self, inventory, item_name):
       return True 
     else:
       return False
-      
+
 def grab_item(self, current_room, item):
   if item.item_type is 'spell':
     if check_inventory(self.inventory, item.item_name):

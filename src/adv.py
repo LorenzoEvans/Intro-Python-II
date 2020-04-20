@@ -121,6 +121,9 @@ while True:
        if item.item_name.lower() == choice.lower():
         rogue.grab_item(rogue.current_room.items, item)
  if input_data == q:
+   # Note, run a save all the things function here to keep progress
+    # Push game state to object on start, diff that object and game state upon quit
+    # over write changes
    quit()
 
 
@@ -144,5 +147,3 @@ while True:
 #  if dir_choice == q:
   # print('Goodbye') # already made this message elsewhere, 
   # quit() (write quit function at some point)
-
-print(rogue)
