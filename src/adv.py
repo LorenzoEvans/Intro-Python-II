@@ -71,7 +71,7 @@ while True:
  q = 'q'
  r = 'r'
  # add wasd directional info
- 
+ item = ''
  input_data = input('> ').lower()
  if input_data == n:
   if try_dir(input_data, rogue.current_room):
@@ -107,13 +107,17 @@ while True:
    rogue.current_room = rogue.current_room.e_to
    print(rogue.current_room.desc)
    print('Current location: %s' % (rogue.current_room.name))
-   
   else:
    print('There\'s nowhere for %s to go.' % (rogue.name))
+
  if input_data == 'search':
   rogue.search(rogue.current_room)
+
+ if input_data == 'grab':
+   while current_room.items is not None:
+     rogue.grab_item()
  if input_data == q:
-  quit()
+   quit()
 
 
 # Write a loop that:
