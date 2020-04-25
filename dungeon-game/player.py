@@ -12,27 +12,27 @@ class Player:
               magic,
               inventory=None,
               current_room=None):
-  self.name = name
-  self.level = 0
-  self.exp = 0
-  self.health = health
-  self.attack = attack
-  self.defense = defense
-  self.magic = magic
-  self.spells = []
-  self.current_room_items = []
-  self.potions = []
-  self.armors = []
-  self.equipped_armor = None
-  self.equipped_weapon = None
-  self.equipped = [self.equipped_armor, self.equipped_weapon]
-  self.weapons = []
-  self.inventory = {spells: self.spells,
-                    potions: self.potions,
-                    armors: self.armor,
-                    weapons: self.weapons,
-                    equipped: [self.equipped_armor, self.equipped_weapon]} if inventory is None else inventory
-  self.current_room = current_room if current_room is not None else current_room
+    self.name = name
+    self.level = 0
+    self.exp = 0
+    self.health = health
+    self.attack = attack
+    self.defense = defense
+    self.magic = magic
+    self.spells = []
+    self.current_room_items = []
+    self.potions = []
+    self.armors = []
+    self.equipped_armor = None
+    self.equipped_weapon = None
+    self.equipped = [self.equipped_armor, self.equipped_weapon]
+    self.weapons = []
+    self.inventory = {'spells': self.spells,
+                      'potions': self.potions,
+                      'armors': self.armors,
+                      'weapons': self.weapons,
+                      'equipped': [self.equipped_armor, self.equipped_weapon]} if inventory is None else inventory
+    self.current_room = current_room if current_room is not None else current_room
 
 
 # def cast(spell, target):
