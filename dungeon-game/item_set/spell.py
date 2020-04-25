@@ -1,4 +1,4 @@
-from item_set.items import Spell
+from .items import Spell
 
 Fire_Spell = Spell('Fire Blast',
                    'Sends a powerful ball of fire at an enemy.',
