@@ -4,6 +4,8 @@
     <list default="true" id="554111b1-3636-41c4-8074-82fe22ddec75" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dungeon-game/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon-game/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dungeon-game/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon-game/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dungeon-game/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon-game/player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1561769264045</updated>
       <workItem from="1561769268327" duration="362000" />
-      <workItem from="1587845312603" duration="4163000" />
+      <workItem from="1587845312603" duration="8276000" />
     </task>
     <servers />
   </component>
@@ -70,5 +72,9 @@
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="694" y="244" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1587845445762" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1587872795245">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1587872795245" />
   </component>
 </project>

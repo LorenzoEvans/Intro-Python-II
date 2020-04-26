@@ -5,14 +5,14 @@ from .item_set.items import item_types
 
 class Player:
  def __init__(self,
-              name,
+              player_name,
               health,
               attack,
               defense,
               magic,
               inventory=None,
               current_room=None):
-    self.name = name
+    self.player_name = player_name
     self.level = 0
     self.exp = 0
     self.health = health
@@ -20,11 +20,11 @@ class Player:
     self.defense = defense
     self.magic = magic
     self.spells = []
-    self.current_room_items = []
+    self.current_room_items = [] # we don't need to store this on the player object or in the db.
     self.potions = []
     self.armors = []
-    self.equipped_armor = None
-    self.equipped_weapon = None
+    self.equipped_armor = None if self.equipped[0] is None else self.equipped[0]
+    self.equipped_weapon = None if self.equipped[1] is None else self.equipped[1]
     self.equipped = [self.equipped_armor, self.equipped_weapon]
     self.weapons = []
     self.inventory = {'spells': self.spells,
