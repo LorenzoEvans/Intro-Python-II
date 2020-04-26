@@ -23,7 +23,9 @@ class Potion(Item):
    self.name = name
    self.desc = desc
    self.type = item_type if item_type is not None else item_type
-   self.potency = 5 if potency is not None else potency
+   self.potency = 100 if potency is not None else potency
+   # Potency doesn't define health points returned,
+   # but rather the percentage of health returned. booyah
 
 class SmallPotion(Potion):
  def __init__(self, name, desc, item_type, quantity):

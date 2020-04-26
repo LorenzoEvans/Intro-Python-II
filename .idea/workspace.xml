@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="554111b1-3636-41c4-8074-82fe22ddec75" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dungeon-game/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon-game/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dungeon-game/item_set/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon-game/item_set/items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dungeon-game/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon-game/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dungeon-game/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon-game/player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1561769264045</updated>
       <workItem from="1561769268327" duration="362000" />
-      <workItem from="1587845312603" duration="8276000" />
+      <workItem from="1587845312603" duration="10073000" />
     </task>
     <servers />
   </component>

@@ -15,45 +15,48 @@ from sqlalchemy.orm import relationship
     # We can distinguish between the object in the database, and say,
     # an instantiation of that object, via the difference in logic that handles,
     # retrieval from db, vs in game interaction.
-class Spell(database.Model):
-  __tablename__ = 'spells'
-  spell_id = database.Column('spell', database.Integer, database.ForeignKey('player.uuid'))
-  # spell_element/type
-  # spell_damage
-  # magic_cost
+
 class Player(database.Model):
   __tablename__ = "players"
   uuid = database.Column('uuid', database.Integer, primary_key=True)
   player_name = database.Column('player_name', database.String(256), index=True, unique=True)
   health = database.Column('health', database.Integer)
-  # items = database.relationship('')
   level = database.Column('level', database.Integer)
   exp = database.Column('exp', database.Integer)
   attack = database.Column('attack', database.Integer)
   defense = database.Column('defense', database.Integer)
   magic = database.Column('magic', database.Integer)
+  # Relationships
   spells_list = relationship(Spell, backref='players')
   weapons_list = relationship(Spell, backref='players')
   potions_list = relationship(Spell, backref='players')
   armor_list = relationship(Spell, backref='players')
+
   equipped_armor = database.Column('equipped_armor', database.String)
   equipped_weapon = database.Column('equipped_weapon', database.String)
 
-  class Spell(database.Model):
-    __tablename__ = 'spells'
-    spell_id = database.Column('player_uuid', database.Integer, database.ForeignKey('player.uuid'))
+class Spell(database.Model):
+  __tablename__ = 'spells'
+  spell_id = database.Column('spell_uuid', database.Integer, database.ForeignKey('player.uuid'))
+  owner = relationship(Player, backref='spells')
+  name = database.Column('spell_name', database.String(256))
+  spell_desc = database.Column('spell_desc', database.String)
+  spell_type = database.Column('spell_type', database.String)
+  atk = database.Column('atk', database.Integer)
+  magic_cost = database.Column('magic_cost', database.Integer)
 
-  class Weapon(database.Model):
-    __tablename__ = 'weapons'
-    player_id = database.Column('player_uuid', database.Integer, database.ForeignKey('player.uuid'))
 
-  class Potion(database.Model):
-    __tablename__ = 'potions'
-    potion_size = database.Column('potion_size', database.String)
-    potion_desc = database.Column('potion_desc', database.String)
-    player_id = database.Column('player_uuid', database.Integer, database.ForeignKey('player.uuid'))
+class Weapon(database.Model):
+  __tablename__ = 'weapons'
+  player_id = database.Column('weapon_uuid', database.Integer, database.ForeignKey('player.uuid'))
 
-  class Armor(database.Model):
-    __tablename__ = 'armors'
-    player_id = database.Column('player_uuid', database.Integer, database.ForeignKey('player.uuid'))
+class Potion(database.Model):
+  __tablename__ = 'potions'
+  potion_size = database.Column('potion_size', database.String)
+  potion_desc = database.Column('potion_desc', database.String)
+  player_id = database.Column('potion_uuid', database.Integer, database.ForeignKey('player.uuid'))
+
+class Armor(database.Model):
+  __tablename__ = 'armors'
+  player_id = database.Column('armor_uuid', database.Integer, database.ForeignKey('player.uuid'))
 
