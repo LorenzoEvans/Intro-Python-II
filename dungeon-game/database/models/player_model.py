@@ -17,7 +17,7 @@ from ..app import database
 
 class Player(database.Model):
   __tablename__ = "players"
-  uuid = database.Column('uuid', database.Integer, primary_key=True)
+  id = database.Column('id', database.Integer, primary_key=True)
   player_name = database.Column('player_name', database.String(256), index=True, unique=True)
   health = database.Column('health', database.Integer)
   level = database.Column('level', database.Integer)
