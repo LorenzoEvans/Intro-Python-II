@@ -6,4 +6,8 @@ class Weapon(database.Model):
   weapon_id = database.Column('weapon_id', database.Integer)
   weapon_name = database.Column('weapon_name', database.String(256))
   weapon_desc = database.Column('weapon_desc', database.String(256))
-  owner = relationship(Player, backref='weapons')
+  weapon_atk = database.Column('weapon_atk', database.Integer)
+  weapon_owner = relationship(Player, backref='weapons')
+
+  def __repr__(self):
+    return '<Weapon %r>' % self.weapon_desc

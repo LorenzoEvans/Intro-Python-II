@@ -1,4 +1,4 @@
-from ..app import database
+from app import database
 # What is the relationship between players and items?
 # A player can have many items obviously, but can an item, be held by many players? ?_?
 # This depends on how we program the ownership of items.
@@ -19,12 +19,12 @@ class Player(database.Model):
   __tablename__ = "players"
   id = database.Column('id', database.Integer, primary_key=True)
   player_name = database.Column('player_name', database.String(256), index=True, unique=True)
-  health = database.Column('health', database.Integer)
-  level = database.Column('level', database.Integer)
-  exp = database.Column('exp', database.Integer)
-  attack = database.Column('attack', database.Integer)
-  defense = database.Column('defense', database.Integer)
-  magic = database.Column('magic', database.Integer)
+  player_health = database.Column('health', database.Integer)
+  player_level = database.Column('level', database.Integer)
+  player_exp = database.Column('exp', database.Integer)
+  player_attack = database.Column('attack', database.Integer)
+  player_defense = database.Column('defense', database.Integer)
+  player_magic = database.Column('magic', database.Integer)
   # Relationships
   # spells_list = relationship(Spell, backref='players')
   # weapons_list = relationship(Spell, backref='players')

@@ -1,7 +1,7 @@
 from ast import literal_eval
-from ..database.models.player_model import Player
-from ..database.models.spell_model import Spell
-from ..database.base import base 
+from database.models.player_model import Player
+from database.models.spell_model import Spell
+from database.base import base 
 import logging 
 import sys
 
@@ -23,9 +23,9 @@ if __name__ == '__main__':
   log.info('Insert Spell data in database.')
   with open ('database/data/Spells.json') as file:
     data = literal_eval(file.read())
-      for record in data:
-        spell = Spell(**record)
-        base.db_session.add(planet)
-      base.db_session.commit()
+    for record in data:
+      spell = Spell(**record)
+      base.db_session.add(planet)
+    base.db_session.commit
   
 

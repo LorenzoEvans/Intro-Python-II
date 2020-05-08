@@ -1,5 +1,5 @@
-from ..app import database
-from ..sqlalchemy.orm import relationship 
+from app import database
+from sqlalchemy.orm import relationship 
 from player_model import Player 
 
 class Spell(database.Model):
