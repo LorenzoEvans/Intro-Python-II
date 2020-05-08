@@ -1,6 +1,6 @@
-from ..sqlalchemy import create_engine 
-from ..sqlalchemy.ext.declarative import declarative_base  
-from ..sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy import create_engine 
+from sqlalchemy.ext.declarative import declarative_base  
+from sqlalchemy.orm import scoped_session, sessionmaker
 import os
 
 # Initializing the database engine.
@@ -15,4 +15,4 @@ Base.metadata.bind = engine # Bind engine to metadata of the base class
 # Create database session object.
 db_session = scoped_session(sessionmaker(bind=engine, expire_on_commit=False))
 # Allow GraphQL queries
-Base.query - db_session.query_property() # 
+Base.query = db_session.query_property() # 
