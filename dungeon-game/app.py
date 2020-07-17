@@ -20,5 +20,4 @@ database = SQLAlchemy(app)
 def greetings():
   return "Welcome to the dungeon, we have dust and flames!"
 
-if __name__ == "__main__":
-  app.run()
+app.run()
